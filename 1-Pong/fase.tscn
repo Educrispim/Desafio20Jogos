@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cq6spwkgwngap"]
+
+[ext_resource type="Script" uid="uid://drglwhfqo4wsw" path="res://barra.gd" id="1_4o364"]
+[ext_resource type="Script" uid="uid://cs5pafoicgrvp" path="res://bola.gd" id="2_ihpo2"]
+[ext_resource type="Script" uid="uid://bf47f1wchxd80" path="res://barra_2.gd" id="3_udkue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdgg5"]
+size = Vector2(43, 245)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ihpo2"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdgg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdgg5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_631kg"]
+size = Vector2(4279, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy88n"]
+size = Vector2(45, 246.5)
+
+[node name="fase" type="Node2D" unique_id=1066041897]
+
+[node name="Barra" type="CharacterBody2D" parent="." unique_id=312676639]
+position = Vector2(1046, 266)
+motion_mode = 1
+floor_block_on_wall = false
+script = ExtResource("1_4o364")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barra" unique_id=24439311]
+shape = SubResource("RectangleShape2D_hdgg5")
+
+[node name="ColorRect" type="ColorRect" parent="Barra" unique_id=232891342]
+offset_left = -21.0
+offset_top = -122.0
+offset_right = 23.0
+offset_bottom = 124.0
+
+[node name="Bola" type="RigidBody2D" parent="." unique_id=1070777650]
+position = Vector2(584, 240)
+collision_layer = 3
+collision_mask = 3
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_ihpo2")
+gravity_scale = 0.3
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("2_ihpo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bola" unique_id=1517227953]
+shape = SubResource("CircleShape2D_hdgg5")
+
+[node name="Panel" type="Panel" parent="Bola" unique_id=858184506]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdgg5")
+
+[node name="Timer" type="Timer" parent="Bola" unique_id=694359580]
+wait_time = 0.001
+one_shot = true
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1897732783]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=514087051]
+position = Vector2(820.5, 644.5)
+shape = SubResource("RectangleShape2D_631kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=739622474]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_631kg")
+
+[node name="Barra2" type="AnimatableBody2D" parent="." unique_id=1670547150]
+position = Vector2(107, 256)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_udkue")
+
+[node name="ColorRect2" type="ColorRect" parent="Barra2" unique_id=28508186]
+offset_left = -21.0
+offset_top = -127.0
+offset_right = 23.0
+offset_bottom = 119.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barra2" unique_id=1985181097]
+position = Vector2(1, -4.25)
+shape = SubResource("RectangleShape2D_oy88n")
+
+[node name="Area2D" type="Area2D" parent="Barra2" unique_id=2063897624]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barra2/Area2D" unique_id=1071135676]
+position = Vector2(1, -4.25)
+shape = SubResource("RectangleShape2D_oy88n")
+
+[connection signal="timeout" from="Bola/Timer" to="Bola" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Barra2/Area2D" to="Barra2" method="_on_area_2d_body_entered"]

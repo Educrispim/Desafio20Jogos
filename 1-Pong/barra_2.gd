@@ -12,13 +12,16 @@ func _process(delta: float) -> void:
 	if bola:
 		var alturaAlvo = bola.global_position.y
 		var limiteTela = get_viewport_rect()
+		var distancia = abs(global_position.y - alturaAlvo)
 	
-		var novo_y = lerp(global_position.y, alturaAlvo, 10 * delta)
-		global_position = Vector2(posicaoInicial_x, novo_y)
+		if distancia > 3.0:
+			global_position.y = move_toward(global_position.y, alturaAlvo, 900 * delta)
+
 		
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == bola:
 		print_debug("colidiu")
+		AudioManager.tocarSom()
 		bola.apply_impulse(Vector2(200,0), Vector2(0,0))

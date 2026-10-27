@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 		var limiteTela = get_viewport_rect()
 		var distancia = abs(global_position.y - alturaAlvo)
 	
-		if distancia > 3.0:
-			global_position.y = move_toward(global_position.y, alturaAlvo, 900 * delta)
+		if distancia > 3:
+			global_position.y = move_toward(global_position.y, alturaAlvo, 400 * delta)
 
 		
 

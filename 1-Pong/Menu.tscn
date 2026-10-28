@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://ixl38itl05bd"]
 
+[ext_resource type="Script" uid="uid://b7k0k8pmqqcts" path="res://button.gd" id="1_uubjt"]
+
 [node name="Menu" type="Node2D" unique_id=1681038318]
+
+[node name="Button" type="Button" parent="." unique_id=1813518488]
+offset_left = 449.0
+offset_top = 226.0
+offset_right = 719.0
+offset_bottom = 296.0
+text = "Iniciar Jogo "
+script = ExtResource("1_uubjt")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var posicaoInicial = global_position
 
 func _ready() -> void:
-		var direcaoInicial = Vector2(randf_range(-1, 1), randf_range(-0.5, 0.8)).normalized()
+		var direcaoInicial = Vector2(randf_range(-1, 1), randf_range(-0.1, 0.1)).normalized()
 		linear_velocity = direcaoInicial * velocidadeConstante
 
 func _process(delta: float) -> void:

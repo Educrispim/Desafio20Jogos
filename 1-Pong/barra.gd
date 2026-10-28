@@ -6,6 +6,7 @@ const SPEED = 350.0
 @onready var posicaoInicial_x = global_position.x
 @onready var bola: RigidBody2D = $"../Bola"
 @export var restituicao: float = 0.8
+@onready var barra: CharacterBody2D = $"."
 
 func _physics_process(delta: float) -> void:
 
@@ -16,8 +17,12 @@ func _physics_process(delta: float) -> void:
 		
 	var limiteTela = get_viewport_rect()
 	var limiteBarra = areaColisao.shape.get_rect()
+	var diferenca = limiteBarra.position.y + barra.position.y
+	var diferenca2 = limiteBarra.end.y + barra.position.y 
 	
-	global_position.y = clamp(global_position.y, limiteTela.position.y, limiteTela.end.y)
+	
+	print(diferenca2)
+	global_position.y = clamp(global_position.y, limiteTela.position.y - diferenca, limiteTela.end.y - diferenca2 )
 	
 	move_and_slide()
 

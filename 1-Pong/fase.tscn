@@ -65,7 +65,7 @@ position = Vector2(0.75, 1.5)
 shape = SubResource("RectangleShape2D_lj6q6")
 
 [node name="Bola" type="RigidBody2D" parent="." unique_id=1070777650]
-position = Vector2(595, 240)
+position = Vector2(595, 230)
 collision_layer = 3
 collision_mask = 3
 mass = 0.1
@@ -81,11 +81,11 @@ script = ExtResource("2_ihpo2")
 shape = SubResource("CircleShape2D_hdgg5")
 
 [node name="Panel" type="Panel" parent="Bola" unique_id=858184506]
-offset_left = -9.0
-offset_top = -8.0
-offset_right = 31.0
-offset_bottom = 32.0
-scale = Vector2(0.5971492, 0.5385734)
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 29.0
+offset_bottom = 30.0
+scale = Vector2(0.5344486, 0.49857095)
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdgg5")
 
 [node name="Timer" type="Timer" parent="Bola" unique_id=694359580]
@@ -128,6 +128,7 @@ shape = SubResource("RectangleShape2D_oy88n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barra2/Area2D" unique_id=1071135676]
 position = Vector2(1, -4.25)
+scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_oy88n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=984382012]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://87ycg2met5s"]
+
+[ext_resource type="Script" uid="uid://cf45t2uym34n" path="res://botaoRejogar.gd" id="1_75u25"]
+[ext_resource type="Script" uid="uid://b1ptsihu21nls" path="res://label.gd" id="2_kpse1"]
+
+[node name="Node2D" type="Node2D" unique_id=1736945347]
+
+[node name="Button" type="Button" parent="." unique_id=190093125]
+offset_left = 509.0
+offset_top = 253.0
+offset_right = 638.0
+offset_bottom = 307.0
+theme_override_font_sizes/font_size = 33
+text = "Rejogar"
+script = ExtResource("1_75u25")
+
+[node name="Label" type="Label" parent="." unique_id=444518513]
+offset_left = 486.0
+offset_top = 209.0
+offset_right = 662.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 27
+text = "Você venceu !"
+script = ExtResource("2_kpse1")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

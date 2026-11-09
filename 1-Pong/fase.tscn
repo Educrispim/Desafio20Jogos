@@ -11,7 +11,7 @@
 size = Vector2(42, 247)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj6q6"]
-size = Vector2(54.5, 257)
+size = Vector2(46.49951, 245.58824)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ihpo2"]
 friction = 0.0
@@ -50,6 +50,7 @@ script = ExtResource("1_4o364")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barra" unique_id=24439311]
 position = Vector2(0, 1.5)
+scale = Vector2(0.99999994, 1)
 shape = SubResource("RectangleShape2D_hdgg5")
 
 [node name="ColorRect" type="ColorRect" parent="Barra" unique_id=232891342]
@@ -61,7 +62,8 @@ offset_bottom = 124.0
 [node name="Area2D" type="Area2D" parent="Barra" unique_id=1277602134]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barra/Area2D" unique_id=586113007]
-position = Vector2(0.75, 1.5)
+position = Vector2(-3.25, 0.7352905)
+scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_lj6q6")
 
 [node name="Bola" type="RigidBody2D" parent="." unique_id=1070777650]

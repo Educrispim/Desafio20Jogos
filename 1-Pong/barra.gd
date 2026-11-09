@@ -18,11 +18,11 @@ func _physics_process(delta: float) -> void:
 	var limiteTela = get_viewport_rect()
 	var limiteBarra = areaColisao.shape.get_rect()
 	var diferenca = limiteBarra.position.y + barra.position.y
-	var diferenca2 = limiteBarra.end.y + barra.position.y 
+	var diferenca2 = barra.position.y + limiteBarra.end.y 
 	
 	
-	print(diferenca2)
-	global_position.y = clamp(global_position.y, limiteTela.position.y - diferenca, limiteTela.end.y - diferenca2 )
+	print(limiteBarra.end.y)
+	global_position.y = clamp(global_position.y, limiteTela.position.y - diferenca, limiteTela.end.y - 70)
 	
 	move_and_slide()
 
